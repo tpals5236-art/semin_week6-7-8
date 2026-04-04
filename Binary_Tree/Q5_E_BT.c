@@ -1,4 +1,4 @@
-//////////////////////////////////////////////////////////////////////////////////
+﻿//////////////////////////////////////////////////////////////////////////////////
 
 /* CE1007/CZ1007 자료구조
 실습 테스트: Section E - 이진 트리 문제
@@ -58,14 +58,14 @@ int main()
     root = NULL;
 
 
-    printf("1: 이진 트리 생성.\n");
-    printf("2: 이진 트리 좌우 대칭 만들기.\n");
-    printf("0: 종료;\n");
+    printf("1: Create a binary tree.\n");
+    printf("2: Mirror the binary tree.\n");
+    printf("0: Quit;\n");
 
 
     while(c != 0)
     {
-        printf("원하는 메뉴를 입력하세요(1/2/0): ");
+        printf("Please input your choice(1/2/0): ");
         if( scanf("%d",&c) > 0)
         {
             switch(c)
@@ -73,13 +73,13 @@ int main()
             case 1:
                 removeAll(&root);
                 root = createTree();
-                printf("현재 이진 트리: ");
+                printf("The resulting binary tree is: ");
                 printTree(root);
                 printf("\n");
                 break;
             case 2:
                 mirrorTree(root);
-                printf("대칭 변환한 이진 트리는: ");
+                printf("Mirror binary tree is: ");
                 printTree(root);
                 printf("\n");
                 removeAll(&root);
@@ -88,7 +88,7 @@ int main()
                 removeAll(&root);
                 break;
             default:
-                printf("알 수 없는 메뉴입니다.\n");
+                printf("Choice unknown;\n");
                 break;
             }
         }
@@ -131,8 +131,8 @@ BTNode *createTree()
 
     stack.top = NULL;
     root = NULL;
-    printf("이진 트리에 추가할 정수를 입력하세요. 알파벳을 입력하면 NULL로 처리됩니다.\n");
-    printf("루트의 정수 값을 입력하세요: ");
+    printf("Input an integer that you want to add to the binary tree. Any Alpha value will be treated as NULL.\n");
+    printf("Enter an integer value for the root: ");
     if(scanf("%d",&item) > 0)
     {
         root = createBTNode(item);
@@ -146,7 +146,7 @@ BTNode *createTree()
     while((temp =pop(&stack)) != NULL)
     {
 
-        printf("노드 %d 의 왼쪽 자식 값을 입력하세요: ", temp->item);
+        printf("Enter an integer value for the Left child of %d: ", temp->item);
 
         if(scanf("%d",&item)> 0)
         {
@@ -157,7 +157,7 @@ BTNode *createTree()
             scanf("%c",&s);
         }
 
-        printf("노드 %d 의 오른쪽 자식 값을 입력하세요: ", temp->item);
+        printf("Enter an integer value for the Right child of %d: ", temp->item);
         if(scanf("%d",&item)>0)
         {
             temp->right = createBTNode(item);

@@ -1,4 +1,4 @@
-//////////////////////////////////////////////////////////////////////////////////
+﻿//////////////////////////////////////////////////////////////////////////////////
 
 /* CE1007/CZ1007 자료구조
 실습 테스트: Section C - 스택과 큐 문제
@@ -63,33 +63,33 @@ int main()
 	s.ll.head = NULL;
 	s.ll.size = 0;
 
-	printf("1: 연결 리스트에 정수를 삽입:\n");
-	printf("2: 연결 리스트로부터 스택 생성:\n");
-	printf("3: 스택에서 짝수 제거:\n");
-	printf("0: 종료:\n");
+	printf("1: Insert an integer into the linked list:\n");
+	printf("2: Create the stack from the linked list:\n");
+	printf("3: Remove even numbers from the stack:\n");
+	printf("0: Quit:\n");
 
 	while (c != 0)
 	{
-		printf("원하는 메뉴를 입력하세요(1/2/3/0): ");
+		printf("Please input your choice(1/2/3/0): ");
 		scanf("%d", &c);
 
 		switch (c)
 		{
 		case 1:
-			printf("연결 리스트에 추가할 정수를 입력하세요: ");
+			printf("Input an integer that you want to add to the linked list: ");
 			scanf("%d", &i);
 			insertNode(&ll, ll.size, i);
-			printf("현재 연결 리스트: ");
+			printf("The resulting linked list is: ");
 			printList(&ll);
 			break;
 		case 2:
 			createStackFromLinkedList(&ll, &s); // 이 함수는 직접 작성해야 한다
-			printf("현재 스택: ");
+			printf("The resulting stack is: ");
 			printList(&(s.ll));
 			break;
 		case 3:
 			removeEvenValues(&s); // 이 함수는 직접 작성해야 한다
-			printf("짝수를 제거한 뒤의 스택 결과: ");
+			printf("The resulting stack after removing even integers is: ");
 			printList(&(s.ll));
 			removeAllItemsFromStack(&s);
 			removeAllItems(&ll);
@@ -99,7 +99,7 @@ int main()
 			removeAllItems(&ll);
 			break;
 		default:
-			printf("알 수 없는 메뉴입니다.\n");
+			printf("Choice unknown;\n");
 			break;
 		}
 
@@ -170,7 +170,7 @@ void printList(LinkedList *ll){
 		return;
 	cur = ll->head;
 	if (cur == NULL)
-		printf("비어 있음");
+		printf("Empty");
 	while (cur != NULL)
 	{
 		printf("%d ", cur->item);

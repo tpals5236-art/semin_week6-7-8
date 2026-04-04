@@ -1,4 +1,4 @@
-//////////////////////////////////////////////////////////////////////////////////
+﻿//////////////////////////////////////////////////////////////////////////////////
 
 /* CE1007/CZ1007 자료구조
 실습 테스트: Section C - 스택과 큐 문제
@@ -72,27 +72,27 @@ int main()
 
     c =1;
 
-    printf("1: 큐에 정수를 삽입;\n");
-    printf("2: 큐 뒤집기;\n");
-    printf("0: 종료;\n");
+    printf("1: Insert an integer into the queue;\n");
+    printf("2: Reverse the queue;\n");
+    printf("0: Quit;\n");
 
     while (c != 0)
 	{
-		printf("원하는 메뉴를 입력하세요(1/2/0): ");
+		printf("Please input your choice(1/2/0): ");
 		scanf("%d", &c);
 
 		switch (c)
 		{
 		case 1:
-			printf("큐에 삽입할 정수를 입력하세요: ");
+			printf("Input an integer that you want to insert into the queue: ");
 			scanf("%d", &value);
 			enqueue(&q, value);
-			printf("현재 큐: ");
+			printf("The queue is: ");
 			printList(&(q.ll));
 			break;
 		case 2:
 			reverse(&q); // 이 함수는 직접 작성해야 한다
-			printf("원소를 뒤집은 뒤의 큐 결과: ");
+			printf("The resulting queue after reversing its elements is: ");
 			printList(&(q.ll));
 			removeAllItems(&(q.ll));
 			break;
@@ -100,7 +100,7 @@ int main()
 			removeAllItems(&(q.ll));
 			break;
 		default:
-			printf("알 수 없는 메뉴입니다.\n");
+			printf("Choice unknown;\n");
 			break;
 		}
 	}
@@ -168,7 +168,7 @@ void printList(LinkedList *ll){
 	cur = ll->head;
 
 	if (cur == NULL)
-		printf("비어 있음");
+		printf("Empty");
 	while (cur != NULL)
 	{
 		printf("%d ", cur->item);

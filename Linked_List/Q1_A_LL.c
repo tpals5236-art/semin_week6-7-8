@@ -1,4 +1,4 @@
-//////////////////////////////////////////////////////////////////////////////////
+﻿//////////////////////////////////////////////////////////////////////////////////
 
 /* CE1007/CZ1007 자료구조
 실습 테스트: Section A - 연결 리스트 문제
@@ -46,30 +46,30 @@ int main()
 	ll.head = NULL;
 	ll.size = 0;
 
-	printf("1: 정렬된 연결 리스트에 정수를 삽입:\n");
-	printf("2: 가장 최근에 입력한 값의 인덱스 출력:\n");
-	printf("3: 정렬된 연결 리스트 출력:\n");
-	printf("0: 종료:");
+	printf("1: Insert an integer to the sorted linked list:\n");
+	printf("2: Print the index of the most recent input value:\n");
+	printf("3: Print sorted linked list:\n");
+	printf("0: Quit:");
 
 	while (c != 0)
 	{
-		printf("\n원하는 메뉴를 입력하세요(1/2/3/0): ");
+		printf("\nPlease input your choice(1/2/3/0): ");
 		scanf("%d", &c);
 
 		switch (c)
 		{
 		case 1:
-			printf("연결 리스트에 추가할 정수를 입력하세요: ");
+			printf("Input an integer that you want to add to the linked list: ");
 			scanf("%d", &i);
 			j = insertSortedLL(&ll, i);
-			printf("현재 연결 리스트: ");
+			printf("The resulting linked list is: ");
 			printList(&ll);
 			break;
 		case 2:
-			printf("값 %d 는 인덱스 %d 에 삽입되었습니다\n", i, j);
+			printf("The most recent input value %d was added at index %d\n", i, j);
 			break;
 		case 3:
-			printf("정렬된 연결 리스트: ");
+			printf("The sorted linked list is: ");
 			printList(&ll);
 			removeAllItems(&ll);
 			break;
@@ -77,7 +77,7 @@ int main()
 			removeAllItems(&ll);
 			break;
 		default:
-			printf("알 수 없는 메뉴입니다.\n");
+			printf("Choice unknown;\n");
 			break;
 		}
 
@@ -90,7 +90,17 @@ int main()
 
 int insertSortedLL(LinkedList *ll, int item)
 {
-	/* 여기에 코드를 작성하세요 */
+	ListNode *cur;
+	int index = 0;
+
+	cur = ll->head;
+	while (cur != NULL && cur->item <= item) {
+		cur = cur->next;
+		index++;
+	}
+
+	insertNode(ll, index, item);
+	return index;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -103,7 +113,7 @@ void printList(LinkedList *ll){
 	cur = ll->head;
 
 	if (cur == NULL)
-		printf("비어 있음");
+		printf("Empty");
 	while (cur != NULL)
 	{
 		printf("%d ", cur->item);

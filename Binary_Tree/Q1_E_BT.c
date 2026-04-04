@@ -1,4 +1,4 @@
-//////////////////////////////////////////////////////////////////////////////////
+﻿//////////////////////////////////////////////////////////////////////////////////
 
 /* CE1007/CZ1007 자료구조
 실습 테스트: Section E - 이진 트리 문제
@@ -53,13 +53,13 @@ int main()
     root2 = NULL;
     c = 1;
 
-    printf("1: 이진 트리 1 생성.\n");
-    printf("2: 이진 트리 2 생성.\n");
-    printf("3: 두 트리가 구조적으로 동일한지 확인.\n");
-    printf("0: 종료;\n");
+    printf("1: Create a binary tree1.\n");
+    printf("2: Create a binary tree2.\n");
+    printf("3: Check whether two trees are structurally identical.\n");
+    printf("0: Quit;\n");
 
     while(c != 0){
-        printf("원하는 메뉴를 입력하세요(1/2/3/0): ");
+        printf("Please input your choice(1/2/3/0): ");
         if(scanf("%d", &c) > 0)
 
         {
@@ -68,27 +68,27 @@ int main()
             {
             case 1:
                 removeAll(&root1);
-                printf("트리1 생성:\n");
+                printf("Creating tree1:\n");
                 root1 = createTree();
-                printf("트리1 결과: ");
+                printf("The resulting tree1 is: ");
                 printTree(root1);
                 printf("\n");
                 break;
             case 2:
                 removeAll(&root2);
-                printf("트리2 생성:\n");
+                printf("Creating tree2:\n");
                 root2 = createTree();
-                printf("트리2 결과: ");
+                printf("The resulting tree2 is: ");
                 printTree(root2);
                 printf("\n");
                 break;
             case 3:
                 s = identical(root1, root2);
                 if(s){
-                printf("두 트리는 구조적으로 동일합니다.\n");
+                printf("Both trees are structurally identical.\n");
                 }
                 else{
-                printf("두 트리는 다릅니다.\n");
+                printf("Both trees are different.\n");
                 }
                 removeAll(&root1);
                 removeAll(&root2);
@@ -98,7 +98,7 @@ int main()
                 removeAll(&root2);
                 break;
             default:
-                printf("알 수 없는 메뉴입니다.\n");
+                printf("Choice unknown;\n");
                 break;
             }
 		}
@@ -142,8 +142,8 @@ BTNode *createTree()
     stk.top = NULL;
     root = NULL;
 
-    printf("이진 트리에 추가할 정수를 입력하세요. 알파벳을 입력하면 NULL로 처리됩니다.\n");
-    printf("루트의 정수 값을 입력하세요: ");
+    printf("Input an integer that you want to add to the binary tree. Any Alpha value will be treated as NULL.\n");
+    printf("Enter an integer value for the root: ");
     if(scanf("%d",&item) > 0)
     {
         root = createBTNode(item);
@@ -157,7 +157,7 @@ BTNode *createTree()
     while((temp =pop(&stk)) != NULL)
     {
 
-        printf("노드 %d 의 왼쪽 자식 값을 입력하세요: ", temp->item);
+        printf("Enter an integer value for the Left child of %d: ", temp->item);
 
         if(scanf("%d",&item)> 0)
         {
@@ -168,7 +168,7 @@ BTNode *createTree()
             scanf("%c",&s);
         }
 
-        printf("노드 %d 의 오른쪽 자식 값을 입력하세요: ", temp->item);
+        printf("Enter an integer value for the Right child of %d: ", temp->item);
         if(scanf("%d",&item)>0)
         {
             temp->right = createBTNode(item);

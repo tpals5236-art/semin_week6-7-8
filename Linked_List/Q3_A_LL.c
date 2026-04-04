@@ -1,4 +1,4 @@
-//////////////////////////////////////////////////////////////////////////////////
+﻿//////////////////////////////////////////////////////////////////////////////////
 
 /* CE1007/CZ1007 자료구조
 실습 테스트: Section A - 연결 리스트 문제
@@ -47,27 +47,27 @@ int main()
 	ll.size = 0;
 
 
-	printf("1: 연결 리스트에 정수를 삽입:\n");
-	printf("2: 모든 홀수를 연결 리스트 뒤로 이동:\n");
-	printf("0: 종료:\n");
+	printf("1: Insert an integer to the linked list:\n");
+	printf("2: Move all odd integers to the back of the linked list:\n");
+	printf("0: Quit:\n");
 
 	while (c != 0)
 	{
-		printf("원하는 메뉴를 입력하세요(1/2/0): ");
+		printf("Please input your choice(1/2/0): ");
 		scanf("%d", &c);
 
 		switch (c)
 		{
 		case 1:
-			printf("연결 리스트에 추가할 정수를 입력하세요: ");
+			printf("Input an integer that you want to add to the linked list: ");
 			scanf("%d", &i);
 			j = insertNode(&ll, ll.size, i);
-			printf("현재 연결 리스트: ");
+			printf("The resulting linked list is: ");
 			printList(&ll);
 			break;
 		case 2:
 			moveOddItemsToBack(&ll); // 이 함수는 직접 작성해야 한다
-			printf("홀수를 뒤로 이동한 뒤의 연결 리스트 결과: ");
+			printf("The resulting linked list after moving odd integers to the back of the linked list is: ");
 			printList(&ll);
 			removeAllItems(&ll);
 			break;
@@ -75,7 +75,7 @@ int main()
 			removeAllItems(&ll);
 			break;
 		default:
-			printf("알 수 없는 메뉴입니다.\n");
+			printf("Choice unknown;\n");
 			break;
 		}
 	}
@@ -99,7 +99,7 @@ void printList(LinkedList *ll){
 	cur = ll->head;
 
 	if (cur == NULL)
-		printf("비어 있음");
+		printf("Empty");
 	while (cur != NULL)
 	{
 		printf("%d ", cur->item);

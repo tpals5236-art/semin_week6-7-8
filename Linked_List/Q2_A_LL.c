@@ -1,4 +1,4 @@
-//////////////////////////////////////////////////////////////////////////////////
+﻿//////////////////////////////////////////////////////////////////////////////////
 
 /* CE1007/CZ1007 자료구조
 실습 테스트: Section A - 연결 리스트 문제
@@ -51,38 +51,38 @@ int main()
 	ll2.head = NULL;
 	ll2.size = 0;
 
-	printf("1: 연결 리스트 1에 정수를 삽입:\n");
-	printf("2: 연결 리스트 2에 정수를 삽입:\n");
-	printf("3: 번갈아 병합된 연결 리스트 생성:\n");
-	printf("0: 종료:\n");
+	printf("1: Insert an integer to the linked list 1:\n");
+	printf("2: Insert an integer to the linked list 2:\n");
+	printf("3: Create the alternate merged linked list:\n");
+	printf("0: Quit:\n");
 
 	while (c != 0)
 	{
-		printf("원하는 메뉴를 입력하세요(1/2/3/0): ");
+		printf("Please input your choice(1/2/3/0): ");
 		scanf("%d", &c);
 
 		switch (c)
 		{
 		case 1:
-			printf("연결 리스트 1에 추가할 정수를 입력하세요: ");
+			printf("Input an integer that you want to add to the linked list 1: ");
 			scanf("%d", &i);
 			j = insertNode(&ll1, ll1.size, i);
-			printf("연결 리스트 1: ");
+			printf("Linked list 1: ");
 			printList(&ll1);
 			break;
 		case 2:
-			printf("연결 리스트 2에 추가할 정수를 입력하세요: ");
+			printf("Input an integer that you want to add to the linked list 2: ");
 			scanf("%d", &i);
 			j = insertNode(&ll2, ll2.size, i);
-			printf("연결 리스트 2: ");
+			printf("Linked list 2: ");
 			printList(&ll2);
 			break;
 		case 3:
-		    printf("주어진 연결 리스트들을 병합한 결과는 다음과 같습니다:\n");
+		    printf("The resulting linked lists after merging the given linked list are:\n");
 			alternateMergeLinkedList(&ll1, &ll2); // 이 함수는 직접 작성해야 한다
-			printf("연결 리스트 1 결과: ");
+			printf("The resulting linked list 1: ");
 			printList(&ll1);
-			printf("연결 리스트 2 결과: ");
+			printf("The resulting linked list 2: ");
 			printList(&ll2);
 			removeAllItems(&ll1);
 			removeAllItems(&ll2);
@@ -92,7 +92,7 @@ int main()
 			removeAllItems(&ll2);
 			break;
 		default:
-			printf("알 수 없는 메뉴입니다.\n");
+			printf("Choice unknown;\n");
 			break;
 		}
 	}
@@ -103,7 +103,45 @@ int main()
 
 void alternateMergeLinkedList(LinkedList *ll1, LinkedList *ll2)
 {
-    /* 여기에 코드를 작성하세요 */
+	ListNode *cur1;
+	ListNode *cur2;
+	ListNode *next1;
+	ListNode *next2;
+	ListNode *tail;
+
+	if (ll1->head == NULL) {
+		ll1->head = ll2->head;
+		ll1->size = ll2->size;
+		ll2->head = NULL;
+		ll2->size = 0;
+		return;
+	}
+	else if (ll2->head == NULL) {
+		return;
+	}
+
+	cur1 = ll1->head;
+	cur2 = ll2->head;
+
+	while (cur1 != NULL && cur2 != NULL) {
+		next1 = cur1->next;
+		next2 = cur2->next;
+
+		cur1->next = cur2;
+		cur2->next = next1;
+		tail = cur2;
+
+		cur1 = next1;
+		cur2 = next2;
+	}
+
+	if (cur1 == NULL && cur2 != NULL) {
+		tail->next = cur2;
+	}
+
+	ll1->size = ll1->size + ll2->size;
+	ll2->head = NULL;
+	ll2->size = 0;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -116,7 +154,7 @@ void printList(LinkedList *ll){
 	cur = ll->head;
 
 	if (cur == NULL)
-		printf("비어 있음");
+		printf("Empty");
 	while (cur != NULL)
 	{
 		printf("%d ", cur->item);

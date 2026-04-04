@@ -1,4 +1,4 @@
-//////////////////////////////////////////////////////////////////////////////////
+﻿//////////////////////////////////////////////////////////////////////////////////
 
 /* CE1007/CZ1007 자료구조
 실습 테스트: Section F - 이진 탐색 트리 문제
@@ -52,25 +52,25 @@ int main()
 	BSTNode * root;
 	root = NULL;
 
-	printf("1: 이진 탐색 트리에 정수를 삽입;\n");
-	printf("2: 이진 탐색 트리의 후위 순회 출력;\n");
-	printf("0: 종료;\n");
+	printf("1: Insert an integer into the binary search tree;\n");
+	printf("2: Print the post-order traversal of the binary search tree;\n");
+	printf("0: Quit;\n");
 
 
 	while (c != 0)
 	{
-		printf("원하는 메뉴를 입력하세요(1/2/0): ");
+		printf("Please input your choice(1/2/0): ");
 		scanf("%d", &c);
 
 		switch (c)
 		{
 		case 1:
-			printf("이진 탐색 트리에 삽입할 정수를 입력하세요: ");
+			printf("Input an integer that you want to insert into the Binary Search Tree: ");
 			scanf("%d", &i);
 			insertBSTNode(&root, i);
 			break;
 		case 2:
-			printf("이진 탐색 트리의 후위 순회 결과: ");
+			printf("The resulting post-order traversal of the binary search tree is: ");
 			postOrderIterativeS1(root); // 이 함수는 직접 작성해야 한다
 			printf("\n");
 			break;
@@ -78,7 +78,7 @@ int main()
 			removeAll(&root);
 			break;
 		default:
-			printf("알 수 없는 메뉴입니다.\n");
+			printf("Choice unknown;\n");
 			break;
 		}
 

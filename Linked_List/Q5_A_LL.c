@@ -1,4 +1,4 @@
-//////////////////////////////////////////////////////////////////////////////////
+﻿//////////////////////////////////////////////////////////////////////////////////
 
 /* CE1007/CZ1007 자료구조
 실습 테스트: Section A - 연결 리스트 문제
@@ -54,30 +54,30 @@ int main()
 	resultBackList.head = NULL;
 	resultBackList.size = 0;
 
-	printf("1: 연결 리스트에 정수를 삽입:\n");
-	printf("2: 연결 리스트를 frontList와 backList 두 개로 분할:\n");
-	printf("0: 종료:\n");
+	printf("1: Insert an integer to the linked list:\n");
+	printf("2: Split the linked list into two linked lists, frontList and backList:\n");
+	printf("0: Quit:\n");
 
 	while (c != 0)
 	{
-	    printf("원하는 메뉴를 입력하세요(1/2/0): ");
+	    printf("Please input your choice(1/2/0): ");
 		scanf("%d", &c);
 
 		switch (c)
 		{
 		case 1:
-			printf("연결 리스트에 추가할 정수를 입력하세요: ");
+			printf("Input an integer that you want to add to the linked list: ");
 			scanf("%d", &i);
 			insertNode(&ll, ll.size, i);
-			printf("현재 연결 리스트: ");
+			printf("The resulting linked list is: ");
 			printList(&ll);
 			break;
 		case 2:
-			printf("주어진 연결 리스트를 분할한 결과는 다음과 같습니다:\n");
+			printf("The resulting linked lists after splitting the given linked list are:\n");
 			frontBackSplitLinkedList(&ll, &resultFrontList, &resultBackList); // 이 함수는 직접 작성해야 한다
-			printf("앞쪽 연결 리스트: ");
+			printf("Front linked list: ");
 			printList(&resultFrontList);
-			printf("뒤쪽 연결 리스트: ");
+			printf("Back linked list: ");
 			printList(&resultBackList);
 			printf("\n");
 			removeAllItems(&ll);
@@ -90,7 +90,7 @@ int main()
 			removeAllItems(&resultBackList);
 			break;
 		default:
-			printf("알 수 없는 메뉴입니다.\n");
+			printf("Choice unknown;\n");
 			break;
 		}
 	}
@@ -114,7 +114,7 @@ void printList(LinkedList *ll){
 		return;
 	cur = ll->head;
 	if (cur == NULL)
-		printf("비어 있음");
+		printf("Empty");
 	while (cur != NULL)
 	{
 		printf("%d ", cur->item);

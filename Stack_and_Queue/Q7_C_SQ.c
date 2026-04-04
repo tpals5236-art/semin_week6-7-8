@@ -1,4 +1,4 @@
-//////////////////////////////////////////////////////////////////////////////////
+﻿//////////////////////////////////////////////////////////////////////////////////
 
 /* CE1007/CZ1007 자료구조
 실습 테스트: Section C - 스택과 큐 문제
@@ -67,32 +67,32 @@ int main()
 	s.ll.head = NULL;
 	s.ll.size = 0;
 
-	printf("1: 문자열 입력:\n");
-	printf("2: ()[]{} 로 이루어진 수식의 균형 여부 확인:\n");
-	printf("0: 종료:\n");
+	printf("1: Enter a string:\n");
+	printf("2: Check whether expressions comprised of the characters ()[]{} is balanced:\n");
+	printf("0: Quit:\n");
 
 
 	while (c != 0)
 	{
-		printf("원하는 메뉴를 입력하세요(1/2/0): ");
+		printf("Please input your choice(1/2/0): ");
 		scanf("%d", &c);
 
 		switch (c)
 		{
 		case 1:
-			printf("공백 없이 수식을 입력해 균형 여부를 확인하세요: ");
+			printf("Enter expressions without spaces to check whether it is balanced or not: ");
 			scanf("%s", str);
 			break;
         case 2:
             if(balanced(str))
-                printf("균형이 맞지 않습니다!\n");
+                printf("not balanced!\n");
             else
-                printf("균형이 맞습니다!\n");
+                printf("balanced!\n");
 			break;
 		case 0:
 			break;
 		default:
-			printf("알 수 없는 메뉴입니다.\n");
+			printf("Choice unknown;\n");
 			break;
 		}
 
@@ -178,7 +178,7 @@ void printList(LinkedList *ll){
 
 	cur = ll->head;
 	if (cur == NULL)
-		printf("비어 있음");
+		printf("Empty");
 	while (cur != NULL)
 	{
 		printf("%d ", cur->item);

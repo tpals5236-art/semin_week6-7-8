@@ -1,4 +1,4 @@
-//////////////////////////////////////////////////////////////////////////////////
+﻿//////////////////////////////////////////////////////////////////////////////////
 
 /* CE1007/CZ1007 자료구조
 실습 테스트: Section C - 스택과 큐 문제
@@ -59,31 +59,31 @@ int main()
 
     c =1;
 
-    printf("1: 스택에 정수를 삽입:\n");
+    printf("1: Insert an integer into the stack:\n");
     printf("2: Check the stack is pairwise consecutive:\n");
-    printf("0: 종료:\n");
+    printf("0: Quit:\n");
 
     while (c != 0)
 	{
-		printf("원하는 메뉴를 입력하세요(1/2/0): ");
+		printf("Please input your choice(1/2/0): ");
 		scanf("%d", &c);
 
 		switch (c)
 		{
 		case 1:
-			printf("스택에 삽입할 정수를 입력하세요: ");
+			printf("Input an integer that you want to insert into the stack: ");
 			scanf("%d", &value);
 			push(&s, value);
-			printf("현재 스택: ");
+			printf("The stack is: ");
             printList(&(s.ll));
 			break;
 		case 2:
             if(isStackPairwiseConsecutive(&s))
             {
-                printf("스택은 pairwise consecutive 상태입니다.\n");
+                printf("The stack is pairwise consecutive.\n");
             }
             else{
-                printf("스택은 pairwise consecutive 상태가 아닙니다.\n");
+                printf("The stack is not pairwise consecutive.\n");
             }
             removeAllItems(&(s.ll));
             break;
@@ -91,7 +91,7 @@ int main()
 			removeAllItems(&(s.ll));
 			break;
 		default:
-			printf("알 수 없는 메뉴입니다.\n");
+			printf("Choice unknown;\n");
 			break;
 		}
 	}
@@ -142,7 +142,7 @@ void printList(LinkedList *ll){
 	cur = ll->head;
 
 	if (cur == NULL)
-		printf("비어 있음");
+		printf("Empty");
 	while (cur != NULL)
 	{
 		printf("%d ", cur->item);
