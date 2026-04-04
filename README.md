@@ -1,9 +1,12 @@
-The practicing sequence could be `Linked List` -> `Stack n Queue` -> `Binary Tree` -> `Binary Search Tree`.
+권장 학습 순서는 `Linked List` -> `Stack n Queue` -> `Binary Tree` -> `Binary Search Tree` 이다.
 
 
-Approperiate `steps` to do each question: **Read the question's requirement in question sheet -> Find the corresponding main frame and copy it to your C compiler, i.e. Code::Block -> Finish the function part -> Try compiling and input some test cases.**
+각 문제를 푸는 권장 순서: **문제지에서 요구사항을 읽기 -> 해당 main 프레임을 찾아 C 컴파일러(예: Code::Block)에 복사하기 -> 함수 부분 완성하기 -> 컴파일 후 테스트 케이스를 입력해 보기**
 ***
 
-The main frames of each question are provided such that the function part is left empty for you to write and fill in the blank to complete the question. Basic functionalities like `POP/PUSH/DEQUEUE/ENQUEUE/REMOVE_LINKED_NODE/FIND_LINKED_NODE` are already provided in the main frame. You don't need to write these basic functions.
+각 문제에는 함수 부분만 비워 둔 main 프레임이 제공되어 있으며, 빈칸을 채워 문제를 완성하면 된다. `POP/PUSH/DEQUEUE/ENQUEUE/REMOVE_LINKED_NODE/FIND_LINKED_NODE` 같은 기본 기능은 이미 main 프레임에 제공되어 있으므로 직접 작성할 필요가 없다.
 
-These questions only illustrate some basis of Data Structure. However, they can be your keys of the door to new world of CS. After finishing these questions, you may have a brief view of what the Data Structure is.
+이 문제들은 자료구조의 기초 일부만 보여 주지만, 새로운 CS 세계로 들어가는 열쇠가 될 수 있다. 이 문제들을 끝내면 자료구조가 무엇인지 전체적인 그림을 볼 수 있을 것이다.
+
+
+

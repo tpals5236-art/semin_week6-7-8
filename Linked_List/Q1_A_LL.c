@@ -217,3 +217,8 @@ int removeNode(LinkedList *ll, int index){
 
 	return -1;
 }
+
+
+
+
+
